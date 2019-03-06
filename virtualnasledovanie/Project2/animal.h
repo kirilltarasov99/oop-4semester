@@ -33,6 +33,8 @@ public:
 class Bear: public Meat, public Veget {
 	int weight;
 public:
+	friend std::ostream& operator << (std::ostream&, const Bear&);
+	friend std::istream& operator >> (std::istream&, Bear&);
 	Bear(int = 100, std::string = "MeatDieta", std::string = "VegetPlant", std::string = "Bear");
 	virtual ~Bear() {};
 	virtual operator std::string() const;

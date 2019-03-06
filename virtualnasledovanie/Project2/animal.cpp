@@ -30,7 +30,7 @@ void Veget::print() const {
 Veget::operator std::string() const {
 	return "\n Veget:" + plant;
 }
-Bear::Bear(int a1, std::string a, std::string b, std::string c) : Animal(c), Meat(a), Veget(b), weight(a1) {
+Bear::Bear(int a1, std::string a, std::string b, std::string c): Animal(c), Meat(a), Veget(b), weight(a1) {
 	std::cout << "\n Constructor Bear";
 }
 Bear::operator std::string() const {
@@ -40,4 +40,21 @@ void Bear::print() const {
 	std::cout << "\n Bear: ";
 	Animal::print();
 	std::cout << "\n dieta = " << dieta << "\n plant = " << plant << "\n weight = " << weight;
+}
+std::ostream& operator << (std::ostream& potok, const Bear&A) {
+	std::cout << "\n Bear: " << "\n name" << A.name << "\n dieta = " << A.dieta << "\n plant = " << A.plant << "\n rost = " << A.rost << "\n weight = " << A.weight;
+	return potok;
+}
+std::istream& operator >> (std::istream& potok, Bear& A) {
+	std::cout << "\n name = ";
+	std::cin >> A.name;
+	std::cout << "\n dieta = ";
+	std::cin >> A.dieta;
+	std::cout << "\n weight = ";
+	std::cin >> A.weight;
+	std::cout << "\n plant = ";
+	std::cin >> A.plant;
+	std::cout << "\n rost = ";
+	std::cin >> A.rost;
+	return potok;
 }
