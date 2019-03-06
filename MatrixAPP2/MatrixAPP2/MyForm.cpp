@@ -9,4 +9,3 @@ void Main(array<String^>^ args) {
 	MatrixAPP2::MyForm form;
 	Application::Run(%form);
 }
-

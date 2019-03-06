@@ -49,6 +49,9 @@ namespace MatrixAPP2 {
 	private: System::Windows::Forms::DataGridView^  M1;
 	private: System::Windows::Forms::DataGridView^  M2;
 	private: System::Windows::Forms::DataGridView^  M3;
+	private: System::Windows::Forms::DataGridView^  T;
+	private: System::Windows::Forms::Label^  label5;
+	private: System::Windows::Forms::Label^  label4;
 	protected:
 
 	private:
@@ -70,6 +73,9 @@ namespace MatrixAPP2 {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->T = (gcnew System::Windows::Forms::DataGridView());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -79,6 +85,7 @@ namespace MatrixAPP2 {
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
 			this->panel2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->T))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->M1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->M2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->M3))->BeginInit();
@@ -118,6 +125,7 @@ namespace MatrixAPP2 {
 			this->button3->TabIndex = 2;
 			this->button3->Text = L"*";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
 			// button2
 			// 
@@ -129,6 +137,7 @@ namespace MatrixAPP2 {
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"-";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
 			// button1
 			// 
@@ -140,9 +149,13 @@ namespace MatrixAPP2 {
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"+";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// panel2
 			// 
+			this->panel2->Controls->Add(this->T);
+			this->panel2->Controls->Add(this->label5);
+			this->panel2->Controls->Add(this->label4);
 			this->panel2->Controls->Add(this->label3);
 			this->panel2->Controls->Add(this->label2);
 			this->panel2->Controls->Add(this->label1);
@@ -152,19 +165,48 @@ namespace MatrixAPP2 {
 			this->panel2->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panel2->Location = System::Drawing::Point(200, 0);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(858, 532);
+			this->panel2->Size = System::Drawing::Size(1092, 532);
 			this->panel2->TabIndex = 1;
+			// 
+			// T
+			// 
+			this->T->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->T->Location = System::Drawing::Point(840, 98);
+			this->T->Name = L"T";
+			this->T->RowTemplate->Height = 24;
+			this->T->Size = System::Drawing::Size(240, 240);
+			this->T->TabIndex = 8;
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(956, 51);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(17, 17);
+			this->label5->TabIndex = 7;
+			this->label5->Text = L"T";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label4->Location = System::Drawing::Point(936, 60);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(27, 25);
+			this->label4->TabIndex = 6;
+			this->label4->Text = L"C";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label3->Location = System::Drawing::Point(627, 60);
+			this->label3->Location = System::Drawing::Point(666, 60);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(111, 25);
+			this->label3->Size = System::Drawing::Size(27, 25);
 			this->label3->TabIndex = 5;
-			this->label3->Text = L"Результат";
+			this->label3->Text = L"C";
 			// 
 			// label2
 			// 
@@ -219,7 +261,7 @@ namespace MatrixAPP2 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1058, 532);
+			this->ClientSize = System::Drawing::Size(1292, 532);
 			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->panel1);
 			this->Name = L"MyForm";
@@ -229,6 +271,7 @@ namespace MatrixAPP2 {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->T))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->M1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->M2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->M3))->EndInit();
@@ -261,5 +304,56 @@ private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e
 		M2->AutoResizeColumns();
 		M2->AutoResizeRows();
 		}
-	};
+	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+		//Вывод матриц
+		M3->ColumnCount = N;
+		M3->RowCount = N;
+		T->ColumnCount = N;
+		T->RowCount = N;
+		MyForm::numericUpDown1->Value = N;
+		for (int i = 0; i < N; i++)
+			for (int j = 0; j < N; j++) {
+				M3->Rows[i]->Cells[j]->Value = (A + B)[i * N + j];
+				T->Rows[i]->Cells[j]->Value = (-(A + B))[i * N + j];
+			}
+		M3->AutoResizeColumns();
+		M3->AutoResizeRows();
+		T->AutoResizeColumns();
+		T->AutoResizeRows();
+	}
+private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+	//Вывод матриц
+	M3->ColumnCount = N;
+	M3->RowCount = N;
+	T->ColumnCount = N;
+	T->RowCount = N;
+	MyForm::numericUpDown1->Value = N;
+	for (int i = 0; i < N; i++)
+		for (int j = 0; j < N; j++) {
+			M3->Rows[i]->Cells[j]->Value = (A - B)[i * N + j];
+			T->Rows[i]->Cells[j]->Value = (-(A - B))[i * N + j];
+		}
+	M3->AutoResizeColumns();
+	M3->AutoResizeRows();
+	T->AutoResizeColumns();
+	T->AutoResizeRows();
+}
+private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
+	//Вывод матриц
+	M3->ColumnCount = N;
+	M3->RowCount = N;
+	T->ColumnCount = N;
+	T->RowCount = N;
+	MyForm::numericUpDown1->Value = N;
+	for (int i = 0; i < N; i++)
+		for (int j = 0; j < N; j++) {
+			M3->Rows[i]->Cells[j]->Value = (A * B)[i * N + j];
+			T->Rows[i]->Cells[j]->Value = (-(A * B))[i * N + j];
+		}
+	M3->AutoResizeColumns();
+	M3->AutoResizeRows();
+	T->AutoResizeColumns();
+	T->AutoResizeRows();
+}
+};
 }

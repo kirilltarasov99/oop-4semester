@@ -1,3 +1,12 @@
-﻿  MyForm.cpp
+﻿  Matr.cpp
+d:\github\oop-4semester\matrixapp2\matrixapp2\matr.cpp(11): warning C4018: <: несоответствие типов со знаком и без знака
+d:\github\oop-4semester\matrixapp2\matrixapp2\matr.cpp(17): warning C4018: <: несоответствие типов со знаком и без знака
+d:\github\oop-4semester\matrixapp2\matrixapp2\matr.cpp(28): warning C4018: <: несоответствие типов со знаком и без знака
+d:\github\oop-4semester\matrixapp2\matrixapp2\matr.cpp(34): warning C4018: >=: несоответствие типов со знаком и без знака
+d:\github\oop-4semester\matrixapp2\matrixapp2\matr.cpp(45): warning C4018: <: несоответствие типов со знаком и без знака
+d:\github\oop-4semester\matrixapp2\matrixapp2\matr.cpp(55): warning C4018: <: несоответствие типов со знаком и без знака
+d:\github\oop-4semester\matrixapp2\matrixapp2\matr.cpp(65): warning C4018: <: несоответствие типов со знаком и без знака
+d:\github\oop-4semester\matrixapp2\matrixapp2\matr.cpp(73): warning C4018: <: несоответствие типов со знаком и без знака
+d:\github\oop-4semester\matrixapp2\matrixapp2\matr.cpp(77): warning C4018: <: несоответствие типов со знаком и без знака
   Matr.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
-  MatrixAPP2.vcxproj -> C:\Users\kiril\source\repos\MatrixAPP2\Debug\MatrixAPP2.exe
+  MatrixAPP2.vcxproj -> D:\GitHub\oop-4semester\MatrixAPP2\Debug\MatrixAPP2.exe

@@ -13,4 +13,5 @@ public:
 	Matr operator - (const Matr&) const;
 	Matr operator * (const Matr&) const;
 	void change(unsigned int = 1);
+	Matr operator -() const;
 };

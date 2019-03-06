@@ -42,7 +42,7 @@ Matr Matr:: operator+(const Matr &A)const
 	if (N != A.N)
 		return *this;
 	Matr temp(N);
-	for (int i = 0; i < N*N; temp.a[i] = a[i] + A.a[i], i++);
+	for (int i = 0; i < N * N; temp.a[i] = a[i] + A.a[i], i++);
 	return temp;
 
 }
@@ -52,7 +52,7 @@ Matr Matr:: operator-(const Matr &A)const
 	if (N != A.N)
 		return *this;
 	Matr temp(N);
-	for (int i = 0; i < N; temp.a[i] = a[i] - A.a[i], i++);
+	for (int i = 0; i < N * N; temp.a[i] = a[i] - A.a[i], i++);
 	return temp;
 
 }
@@ -62,15 +62,23 @@ Matr Matr:: operator*(const Matr &A)const
 	if (N != A.N)
 		return *this;
 	Matr temp(N);
-	for (int i = 0; i < N; temp.a[i] = a[i] + A.a[i], i++);
+	for (int i = 0; i < N * N; temp.a[i] = a[i] * A.a[i], i++);
 	return temp;
-
 }
-
 void Matr::change(unsigned int k)
 {
 	delete[]a;
 	N = k;
 	a = new int[N*N];
 	for (int i = 0; i < N*N; a[i] = 0, i++);
+}
+Matr Matr::operator -() const {
+	Matr T(*this);
+	for (int i = 0; i < N; i++)
+		for (int j = 0; j < i; j++) {
+			int z = T.a[i * N + j];
+			T.a[i * N + j] = T.a[j * N + i];
+			T.a[j * N + i] = z;
+		}
+	return T;
 }
