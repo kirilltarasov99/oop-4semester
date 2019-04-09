@@ -20,3 +20,11 @@ void Futbolist::ChangeWeight(float k) {
 	std::cin >> k;
 	Weight = k;
 }
+
+Forward::Forward(int a, int b) : Mastery(a), TotalGoals(b) {
+	std::cout << "\n ConstructorForward";
+}
+
+void Forward::print() const {
+	std::cout << "\n Surname = " << Surname << "\n TeamName = " << TeamName << "\n Height = " << Height << "\n Weight = " << Weight << "\n Mastery = " << Mastery << "\n Total goals = " << TotalGoals;
+}
