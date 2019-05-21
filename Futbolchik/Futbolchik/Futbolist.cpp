@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Futbolist.h"
+//using namespace std;
 
 Futbolist::Futbolist(std::string a, std::string a1, float b, float b1) : Surname(a), TeamName(a1), Height(b), Weight(b1) {
 	std::cout << "\n ConstructorFutbolist";
@@ -19,4 +20,64 @@ void Futbolist::ChangeWeight(float k) {
 	std::cout << "\n New Weight = ";
 	std::cin >> k;
 	Weight = k;
+}
+
+Forward::Forward(int c, int c1, std::string, std::string, float, float): Mastery(c), TotalGoals(c1)
+{
+	std::cout << "\n ConstructorForward";
+}
+
+void Forward::ScoreGoal()
+{
+	std::cout << "\n Goal was scored!";
+	TotalGoals++;
+}
+
+void Forward::print() const
+{
+	std::cout << "\n Surname = " << Surname << "\n TeamName = " << TeamName << "\n Height = " << Height << "\n Weight = " << Weight << "\n Mastery = " << Mastery << "\n Total goals = " << TotalGoals;
+}
+
+Defender::Defender(int d, int d1, std::string, std::string, float, float): TotalGames(d), WonGames(d1)
+{
+	std::cout << "\n ConstructorDefender";
+}
+
+void Defender::AddGame()
+{
+	std::cout << "\n The player participated in another game";
+	TotalGames++;
+}
+
+void Defender::AddWonGame()
+{
+	std::cout << "\n The player participated in a successful game";
+	WonGames++;
+}
+
+std::ostream& operator << (std::ostream& potok, const Futbolist& A)
+{
+	potok << "\n Surname = " << A.Surname << "\n TeamName = " << A.TeamName << "\n Height = " << A.Height << "\n Weight = " << A.Weight;
+	return potok;
+}
+
+std::istream& operator >> (std::istream& potok, Futbolist& A)
+{
+	std::cout << "\n Surname?";
+	potok >> A.Surname;
+	std::cout << "\n TeamName?";
+	potok >> A.TeamName;
+	std::cout << "\n Height?";
+	potok >> A.Height;
+	std::cout << "\n Weight?";
+	potok >> A.Weight;
+	return potok;
+}
+
+void ChangeMastery(Forward & B)
+{
+	int Temp;
+	std::cout << "\n Enter mastery value:";
+	std::cin >> Temp;
+	B.Mastery = Temp;
 }
