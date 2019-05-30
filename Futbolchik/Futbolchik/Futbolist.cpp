@@ -6,6 +6,24 @@ Futbolist::Futbolist(std::string a, std::string a1, float b, float b1) : Surname
 	std::cout << "\n ConstructorFutbolist";
 }
 
+Futbolist::Futbolist(const Futbolist& A)
+{
+	Surname = A.Surname;
+	TeamName = A.TeamName;
+	Weight = A.Weight;
+	Height = A.Height;
+}
+
+Futbolist& Futbolist::operator=(const Futbolist& A)
+{
+	Surname = A.Surname;
+	TeamName = A.TeamName;
+	Weight = A.Weight;
+	Height = A.Height;
+	return *this;
+}
+
+
 void Futbolist::print() const {
 	std::cout << "\n Surname = " << Surname << "\n TeamName = " << TeamName << "\n Height = " << Height << "\n Weight = " << Weight;
 }
@@ -22,11 +40,6 @@ void Futbolist::ChangeWeight(float k) {
 	Weight = k;
 }
 
-Forward::Forward(int c, int c1, std::string, std::string, float, float): Mastery(c), TotalGoals(c1)
-{
-	std::cout << "\n ConstructorForward";
-}
-
 void Forward::ScoreGoal()
 {
 	std::cout << "\n Goal was scored!";
@@ -36,11 +49,6 @@ void Forward::ScoreGoal()
 void Forward::print() const
 {
 	std::cout << "\n Surname = " << Surname << "\n TeamName = " << TeamName << "\n Height = " << Height << "\n Weight = " << Weight << "\n Mastery = " << Mastery << "\n Total goals = " << TotalGoals;
-}
-
-Defender::Defender(int d, int d1, std::string, std::string, float, float): TotalGames(d), WonGames(d1)
-{
-	std::cout << "\n ConstructorDefender";
 }
 
 void Defender::AddGame()
