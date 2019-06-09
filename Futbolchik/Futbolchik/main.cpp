@@ -18,4 +18,6 @@ int main() {
 	C.AddGame();
 	C.AddWonGame();
 	C.print();
+	cin >> A;
+	cout << A;
 }

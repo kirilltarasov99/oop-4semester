@@ -18,7 +18,7 @@ public:
 	friend std::ostream& operator << (std::ostream&, const Futbolist&);
 	friend std::istream& operator >> (std::istream&, Futbolist&);
 };
-class Forward: virtual public Futbolist {
+class Forward: public Futbolist {
 protected:
 	int TotalGoals;
 public:
@@ -41,7 +41,7 @@ public:
 	void print() const;
 	friend void ChangeMastery(Forward& B);
 };
-class Defender: virtual public Futbolist
+class Defender: public Futbolist
 {
 protected:
 	int TotalGames;

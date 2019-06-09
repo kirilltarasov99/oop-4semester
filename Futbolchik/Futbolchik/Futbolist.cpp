@@ -16,10 +16,12 @@ Futbolist::Futbolist(const Futbolist& A)
 
 Futbolist& Futbolist::operator=(const Futbolist& A)
 {
-	Surname = A.Surname;
-	TeamName = A.TeamName;
-	Weight = A.Weight;
-	Height = A.Height;
+	if (this != &A) {
+		Surname = A.Surname;
+		TeamName = A.TeamName;
+		Weight = A.Weight;
+		Height = A.Height;
+	}
 	return *this;
 }
 
